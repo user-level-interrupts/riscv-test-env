@@ -95,6 +95,9 @@
 #define MCONTROL_MATCH_MASK_LOW  4
 #define MCONTROL_MATCH_MASK_HIGH 5
 
+/* start ULI */
+#define MIP_USIP            (1 << IRQ_U_SOFT)
+/* end ULI */
 #define MIP_SSIP            (1 << IRQ_S_SOFT)
 #define MIP_HSIP            (1 << IRQ_H_SOFT)
 #define MIP_MSIP            (1 << IRQ_M_SOFT)
@@ -107,6 +110,10 @@
 
 #define SIP_SSIP MIP_SSIP
 #define SIP_STIP MIP_STIP
+
+/* start ULI */
+#define UIP_USIP MIP_USIP
+/* end ULI */
 
 #define PRV_U 0
 #define PRV_S 1
@@ -138,12 +145,21 @@
 #define PMP_NA4   0x10
 #define PMP_NAPOT 0x18
 
+/* start ULI */
+#define IRQ_U_SOFT   0
+/* end ULI */
 #define IRQ_S_SOFT   1
 #define IRQ_H_SOFT   2
 #define IRQ_M_SOFT   3
+/* start ULI */
+#define IRQ_U_TIMER  4
+/* end ULI */
 #define IRQ_S_TIMER  5
 #define IRQ_H_TIMER  6
 #define IRQ_M_TIMER  7
+/* start ULI */
+#define IRQ_U_EXT    8
+/* end ULI */
 #define IRQ_S_EXT    9
 #define IRQ_H_EXT    10
 #define IRQ_M_EXT    11
@@ -805,6 +821,8 @@
 #define CSR_MCAUSE 0x342
 #define CSR_MTVAL 0x343
 #define CSR_MIP 0x344
+// added for ULI
+#define CSR_PID 0x345
 #define CSR_PMPCFG0 0x3a0
 #define CSR_PMPCFG1 0x3a1
 #define CSR_PMPCFG2 0x3a2
@@ -1296,7 +1314,10 @@ DECLARE_CSR(mscratch, CSR_MSCRATCH)
 DECLARE_CSR(mepc, CSR_MEPC)
 DECLARE_CSR(mcause, CSR_MCAUSE)
 DECLARE_CSR(mtval, CSR_MTVAL)
+// start ULI
 DECLARE_CSR(mip, CSR_MIP)
+// end ULI
+DECLARE_CSR(pid, CSR_PID)
 DECLARE_CSR(pmpcfg0, CSR_PMPCFG0)
 DECLARE_CSR(pmpcfg1, CSR_PMPCFG1)
 DECLARE_CSR(pmpcfg2, CSR_PMPCFG2)

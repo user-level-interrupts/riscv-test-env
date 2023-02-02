@@ -110,6 +110,9 @@
         .align  6;                                                      \
         .weak stvec_handler;                                            \
         .weak mtvec_handler;                                            \
+/* start ULI */                                                         \
+        .weak utvec_handler;                                            \
+/* end ULI */                                                           \
         .globl _start;                                                  \
 _start:                                                                 \
         /* reset vector */                                              \
